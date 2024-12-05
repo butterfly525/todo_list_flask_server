@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from models import db, Task, User
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from sqlalchemy import func
+from flask_cors import CORS
 
 app = Flask(__name__)
 
@@ -12,6 +13,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
 # Отключаем отслеживание изменений
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'jwt_secret_key'
+CORS(app)
 db.init_app(app)
 
 jwt = JWTManager(app)
