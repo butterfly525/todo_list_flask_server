@@ -127,7 +127,3 @@ def delete_task(id):
     db.session.commit()
     return '', 204
 
-
-# Стартовое приложение
-if __name__ == '__main__':
-    app.run()
